@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 (function($) {
     $.fn.calculator = function(options) {
         var opts = $.extend($.fn.calculator.defaults, options);
@@ -111,12 +118,14 @@
                 "</div>";
     }
 
+//    function calculate(age, currentWeight, height, activity, sex, endweight, calories, losstype, timeStamp, bmrFormula)
     function calculate()
     {
 
         var jsonOutputArray= new Array();
         var week = 0;
         var output = "";
+//        var calculator = new Calculator(age, currentWeight, height, activity, sex, endweight, calories, losstype, timeStamp, bmrFormula);
         var startWeight = $.fn.calculator.defaults.currentWeight;
         while ($.fn.calculator.defaults.currentWeight > $.fn.calculator.defaults.endweight)
         {
@@ -164,9 +173,11 @@
                 weekCalorieIntake = weekTotal - diff;
             }
             $.fn.calculator.defaults.currentWeight = $.fn.calculator.defaults.currentWeight - lbs;
+//            output += printOutput($.fn.calculator.defaults.timeStamp, lbs, $.fn.calculator.defaults.currentWeight, BMR, activityCalories, total, weekTotal, weekCalorieIntake, diff, week, startWeight);
               jsonOutputArray.push(JSONOutput($.fn.calculator.defaults.timeStamp, lbs, $.fn.calculator.defaults.currentWeight, BMR, activityCalories, total, weekTotal, weekCalorieIntake, diff, week, startWeight));
         }
-
+//        return output;
+//        alert(JSON.stringify(jsonOutputArray));
         return JSON.stringify(jsonOutputArray);
     }
 
